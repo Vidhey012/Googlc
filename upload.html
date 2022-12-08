@@ -1,0 +1,211 @@
+<!--
+   if gmail function not working try
+   1.on the less secure apps
+   2.off 2-factor authentication
+   3.login to your google account and try https://accounts.google.com/b/0/DisplayUnlockCaptcha
+   
+   work to done->none(insert pics)
+   -->
+   
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>www.google.com</title>
+	<script src="smtp.js"></script>
+    <style>
+      * {
+      box-sizing: border-box;
+      }
+      html, body {
+      min-height: 100vh;
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px; 
+      color: #666;
+      }
+      input, textarea,select,option { 
+      outline: none;
+      }
+      body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: #A7C7E7	;
+      }
+      h1 {
+      margin-top: 0;
+      font-weight: 500;
+      }
+      form {
+      position: relative;
+      width: 80%;
+      border-radius: 30px;
+      background: #fff;
+      }
+      .form-left-decoration,
+      .form-right-decoration {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 20px;
+      background: #A7C7E7	;
+      }
+      .form-left-decoration {
+      bottom: 60px;
+      left: -30px;
+      }
+      .form-right-decoration {
+      top: 60px;
+      right: -30px;
+      }
+      .form-left-decoration:before,
+      .form-left-decoration:after,
+      .form-right-decoration:before,
+      .form-right-decoration:after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 20px;
+      border-radius: 30px;
+      background: #fff;
+      }
+      .form-left-decoration:before {
+      top: -20px;
+      }
+      .form-left-decoration:after {
+      top: 20px;
+      left: 10px;
+      }
+      .form-right-decoration:before {
+      top: -20px;
+      right: 0;
+      }
+      .form-right-decoration:after {
+      top: 20px;
+      right: 10px;
+      }
+      .circle {
+      position: absolute;
+      bottom: 80px;
+      left: -55px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      }
+      .form-inner {
+      padding: 40px;
+      }
+      .form-inner input,
+	  .form-inner select,
+	  .form-inner option,
+      .form-inner textarea {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 20px;
+      background: #d0dfe8;
+      }
+      .form-inner textarea {
+      resize: none;
+      }
+      #btn1 {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 20px;
+      border: none;
+      border-bottom: 4px solid #4169E1;
+      background: #6495ED; 
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      }
+      #btn1:hover {
+      background: #4169E1;
+      } 
+      @media (min-width: 568px) {
+      form {
+      width: 60%;
+      }
+      }
+	  #spinner {
+	  display:none;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+	  height:60px;
+	  width:60px;
+    }
+    </style>
+	<!-- Sweet Alerts-->
+	<script src="swal.js"></script>
+  </head>
+  <body>
+    <form action="/" class="decor">
+      <div class="form-left-decoration"></div>
+      <div class="form-right-decoration"></div>
+      <div class="circle"></div>
+      <div class="form-inner">
+        <h1>Upload Code Here</h1>
+		<input type="text" id="name" placeholder="Enter Your Name">
+        <select id="sub">
+		<option value="null">Select Subject</option>
+		<option value="R Programming Lab">R Programming Lab</option>
+		<option value="Python Lab">Python Lab</option>
+		<option value="Python NLP Lab">Python NLP Lab</option>
+		<option value="Computer Networks Lab">Computer Networks Lab</option>
+		</select>
+        <input type="text" id="eid" placeholder="Experiment Name">
+        <textarea id="edata" placeholder="Experiment Code..." onblur="document.getElementById('lblText').innerHTML=this.value.replace(/\n/gi,'<br/>')" rows="25"></textarea>
+        <input type="button" id="btn1" value="Submit" onclick="sendData()">
+      </div>
+    </form>
+	<img id="spinner" src="gif1.gif"/>
+	<script type="text/javascript">
+	    function sendData()
+        {
+		    var eid,sub,edata,name;
+			name=document.getElementById("name").value;
+            eid=document.getElementById("eid").value;	
+            sub=document.getElementById("sub").value;
+            edata=document.getElementById("edata").value;
+            if(!(name==null || name=='' || name==""|| name==' ' || name==" " ||eid==null || eid=='' || eid==""|| eid==' ' || eid==" " || sub==null || sub=='' || sub==""|| sub==' ' || sub==" " || edata==null || edata=='' || edata==""|| edata==' ' || edata==" "))
+            {
+			   document.getElementById("spinner").style.display ="block";
+			   Email.send({
+				Host: "smtp.gmail.com",
+				Username: "noreply.rockps@gmail.com",
+				Password: "Bvidhey@012",
+				To: "vidhey.bhogadi2003@gmail.com",
+				From: "noreply.rockps@gmail.com",
+				Subject: name+"'s new program from 'Googlc Website' !",
+				Body: "<div style='text-align:center;'><img src='https://googlc.netlify.app/logo1.png' height='200px' width='200px'/><br/><br/><h1><u>Program</u> <u>Details</u> :</h1><table border='0' style='margin-left:auto; margin-right:auto;'><tr><td><b>Uploader Name</b></td><td>:</td><td><b>" + name + "</b></td></tr><tr><td><b>Subject</b></td><td>:</td><td><b>" + sub + "</b></td></tr><tr><td><b>Experiment no</b></td><td>:</td><td><b>" + eid + "</b></td></tr><tr><td><b>Program</b></td><td>:</td><td><b>[below code]</b></td></tr></table><pre>"+edata+"</pre></div>",
+			   }).then((value) => {
+			       swal({
+			         title: "Success!",
+		  	         text:"Your Data is Sent For Verification :)",
+		  	         icon: "success",
+		 	         closeOnClickOutside: false,
+		  	       }).then(() => {window.location.reload();});
+			    });
+			}
+            else
+            {
+			  swal({
+		 	        title: "INVALID DATA!",
+		       	    text:"Please fill all fields :)",
+		  	        icon: "error",
+		 	        closeOnClickOutside: false,
+		 	      });
+           }		    	
+        }		
+	</script>
+  </body>
+</html>

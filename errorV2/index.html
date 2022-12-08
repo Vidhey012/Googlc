@@ -1,0 +1,520 @@
+<html>
+	<head>
+	    <title>www.google.com</title>
+		<style>
+			html {
+				-webkit-text-size-adjust: 100%;
+				font-size: 125%;
+			}
+
+			body {
+				background-color:#f7f7f7;
+				color: #646464;
+				font-family: 'Segoe UI', Tahoma, sans-serif;
+				font-size: 75%;
+			}
+
+			div {
+				display:block;
+			}
+
+			h1 {
+				margin-top: 0;
+    				color: #333;
+    				font-size: 1.6em;
+    				font-weight: normal;
+    				line-height: 1.25em;
+    				margin-bottom: 16px;
+			}
+			button {
+    				-webkit-user-select: none;
+    				background: rgb(76, 142, 250);
+    				border: 0;
+    				border-radius: 2px;
+    				box-sizing: border-box;
+    				color: #fff;
+    				cursor: pointer;
+    				float: right;
+    				font-size: .875em;
+    				margin: 0;
+    				padding: 10px 24px;
+    				transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+			}
+			button:hover {
+				box-shadow: 0 1px 2px rgba(1, 1, 1, 0.5);
+			}
+
+			.error-code {
+    				color: #777;
+    				display: inline;
+    				font-size: .86667em;
+    				margin-top: 15px;
+    				opacity: .5;
+    				text-transform: uppercase;
+			}
+
+			.interstitial-wrapper {
+				box-sizing: border-box;
+				font-size: 1em;
+				margin: 100px auto 0;
+				max-width: 600px;
+				width: 100%;
+			}
+
+			.offline .interstitial-wrapper {
+				color: #2b2b2b;
+				font-size: 1em;
+				line-height: 1.55;
+				margin: 0 auto;
+				max-width: 600px;
+				padding-top: 100px;
+				width: 100%;
+			}
+
+			.offline .runner-container {
+    				height: 150px;
+    				max-width: 600px;
+    				overflow: hidden;
+    				position: absolute;
+    				top: 35px;
+    				width: 44px;
+			}
+
+			.icon {
+				background-repeat: no-repeat;
+				background-size: 100%;
+				height: 72px;
+				margin: 0 0 40px;
+				width: 720px;
+				-webkit-user-select: none;
+				content: '';
+			}
+            .icon-offline {
+                background-image: url('dinasor.png');
+                background-size: contain;
+                position: relative;
+                width: 74px;
+            }
+
+			.hidden {
+				display: none;
+			}
+
+			.nav-wrapper {
+    				margin-top: 51px;
+			}
+			#buttons::after {
+    				clear: both;
+    				content: '';
+    				display: block;
+    				width: 100%;
+			}
+
+			.nav-wrapper::after {
+    				clear: both;
+    				content: '';
+    				display: table;
+    				width: 100%;
+			}
+			.suggested-left > #control-buttons, .suggested-left #stale-load-button, .suggested-right > #details-button {
+    				float: left;
+			}
+			.suggested-right > #control-buttons, .suggested-right #stale-load-button, .suggested-left > #details-button {
+    				float: right;
+			}
+
+			#details-button {
+    				background: inherit;
+    				border: 0;
+    				float: none;
+    				box-shadow: none;
+    				min-width: 0;
+				    margin: 0;
+    				padding: 10px 0;
+    				text-decoration: underline;
+			}
+			.small-link {
+    				color: #696969;
+    				font-size: .875em;
+			}
+
+
+			@media (min-height: 240px) and (orientation: landscape) {
+				.icon-offline {
+    					margin-bottom: 20px;
+				}
+			}
+			@media (max-width: 640px), (max-height: 640px) {
+				h1 {
+    					margin: 0 0 15px;
+				}
+				button {
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+
+	<iframe id="gfgFrame"  src="" style="height: 99%; width: 100%; display:none; border:none;"></iframe>
+	<body class="offline" onload="myFunc()" >
+		<div class="interstitial-wrapper" id="body1">
+			<div id="main-content">
+				<div class="icon icon-offline"></div>
+				<div id="main-message">
+					<h1><b>This webpage is not</b> <b onclick="myFunction()">available </b></h1>
+					<p></p>
+					<div class="error-code">DNS_PROBE_FINISHED_NO_INTERNET_INDV</div>
+				</div>
+			</div>
+
+
+            <div id="buttons" class="nav-wrapper suggested-left">
+                  <div id="control-buttons">
+                      <button id="show-saved-copy-button" class="blue-button text-button" style="display: none;"></button>
+                      <button id="reload-button" class="blue-button text-button">Reload</button>
+                  </div>
+                  <button id="details-button" class="text-button small-link">Details</button>
+            </div>
+
+
+
+
+            <div id="details" class="hidden">
+                  <div class="suggestions" jsselect="suggestions" jstcache="6" jsinstance="0">
+                    <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="13">Check your Internet connection</div>
+                    <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="14">Check any cables and reboot any routers, modems, or other network
+                    devices you may be using.</div>
+                  </div>
+            </div>
+
+
+		</div>
+		
+	
+
+
+<textarea id="myInput" style="display:none">
+
+
+
+#1b
+​
+expr=input("Enter an Expression : ")
+ans=eval(expr)
+print(f"{expr}={ans}")
+
+#Output
+
+Enter an Expression : 2+5+3
+2+5+3=10
+
+
+#2a
+​
+my_string="Hii this is vidhey"
+print(my_string)
+my_string
+
+#Output
+
+Hii this is vidhey
+'Hii this is vidhey'
+
+
+#2b
+​
+my_string="Hello"
+print(my_string+my_string)
+print(my_string*3)
+print(my_string+" "+my_string)
+print(((my_string+" ")*3).strip())
+
+#Output
+
+HelloHello
+HelloHelloHello
+Hello Hello
+Hello Hello Hello
+
+
+#3a
+​
+my_sent=["Hii","this","is","vidhey"]
+str=" ".join(my_sent)
+print(str)
+
+#Output
+
+Hii this is vidhey
+
+
+#3b
+​
+my_sent=["Hii","this","is","vidhey"]
+str=" ".join(my_sent)
+lst1=str.split()
+print(lst1)
+
+#Output
+
+['Hii', 'this', 'is', 'vidhey']
+
+
+#4
+​
+#cmd
+​
+pip install nltk
+​
+#jupyter
+​
+import nltk
+nltk.download('gutenberg')
+nltk.download('genesis')
+nltk.download('inaugural')
+nltk.download('nps_chat')
+nltk.download('webtext')
+nltk.download('treebank')
+  Input In [19]
+    pip install nltk
+        ^
+SyntaxError: invalid syntax
+
+
+#4a
+​
+import nltk
+from nltk.book import text6
+lst=list(filter(lambda x:x.endswith("ise"),text6))
+print(lst)
+
+#Output
+
+['wise', 'wise', 'apologise', 'surprise', 'surprise', 'surprise', 'noise', 'surprise']
+
+
+#4b
+​
+import nltk
+from nltk.book import text6
+lst=list(filter(lambda x:"z" in x,text6))
+print(lst)
+
+#Output
+
+['zone', 'amazes', 'Fetchez', 'Fetchez', 'zoop', 'zoo', 'zhiv', 'frozen', 'zoosh']
+
+
+#4c
+​
+import nltk
+from nltk.book import text6
+lst=list(filter(lambda x:"pt" in x,text6))
+print(lst)
+
+#Output
+
+['empty', 'aptly', 'Thpppppt', 'Thppt', 'Thppt', 'empty', 'Thppppt', 'temptress', 'temptation', 'ptoo', 'Chapter', 'excepting', 'Thpppt']
+
+
+#4d
+​
+import nltk
+from nltk.book import text6
+lst=list(filter(lambda x:x.istitle(),text6))
+print(lst[:20])
+
+#Output
+
+['Whoa', 'Halt', 'Who', 'It', 'I', 'Arthur', 'Uther', 'Pendragon', 'Camelot', 'King', 'Britons', 'Saxons', 'England', 'Pull', 'I', 'Patsy', 'We', 'Camelot', 'I', 'What']
+
+
+#5a
+​
+sent=['she','sells','sea','shells','by','the','sea','shore']
+lst=list(filter(lambda x:x.startswith('sh'),sent))
+print(lst)
+
+#Output
+
+['she', 'shells', 'shore']
+
+
+#5b
+​
+sent=['she','sells','sea','shells','by','the','sea','shore']
+lst=list(filter(lambda x:len(x)>4,sent))
+print(lst)
+
+#Output
+
+['sells', 'shells', 'shore']
+
+
+#6
+​
+import nltk
+from nltk.book import *
+sent=sent1+sent2+sent3+sent4+sent5+sent6+sent7+sent8
+vocabulary=sorted(set(sent))
+print(sent[:10],end="\n\n")
+print(vocabulary[:10])
+
+#Output
+
+['Call', 'me', 'Ishmael', '.', 'The', 'family', 'of', 'Dashwood', 'had', 'long']
+
+['!', ',', '-', '.', '1', '25', '29', '61', ':', 'ARTHUR']
+
+
+#7
+​
+import nltk
+from nltk.book import text9
+index=text9.index('sunset')
+print(f"index of sunset is {index}")
+print(' '.join(text9[600:650]),end="\n\n")
+print(' '.join(text9[615:643]))
+
+#Output
+
+index of sunset is 629
+, and you may safely read . G . K . C . CHAPTER I THE TWO POETS OF SAFFRON PARK THE suburb of Saffron Park lay on the sunset side of London , as red and ragged as a cloud of sunset . It was built of a bright
+
+THE TWO POETS OF SAFFRON PARK THE suburb of Saffron Park lay on the sunset side of London , as red and ragged as a cloud of sunset
+
+
+#8
+​
+import nltk
+from nltk.book import text1
+def percent(word,text):
+    total=len(word)
+    fcase=word.count(text)
+    print(f"out of {total} words {text} occoured {fcase} times")
+    print(f"percentage={fcase/total*100}")
+percent(text1,"the")    
+
+#Output
+
+out of 260819 words the occoured 13721 times
+percentage=5.260736372733581
+
+
+#9
+​
+import nltk
+from nltk.book import text1
+def vocab_size(text):
+    text=text.vocab()
+    print(len(text))
+vocab_size(text1)
+
+#Output
+
+19317
+
+
+#10
+​
+import nltk
+from nltk.book import text5
+dic=text5.vocab()
+dic=dict(filter(lambda x:len(x[0])==4,dic.items()))
+print(sorted(dic.items(),key=lambda x:x[1],reverse=True)[:10])
+
+#Output
+
+[('JOIN', 1021), ('PART', 1016), ('that', 274), ('what', 183), ('here', 181), ('....', 170), ('have', 164), ('like', 156), ('with', 152), ('chat', 142)]
+
+
+#11
+​
+import re
+from nltk.stem import PorterStemmer
+from nltk import wordpunct_tokenize
+ps=PorterStemmer()
+sent="In the begining God created the heaven and the earth."
+re.sub(r"[^\w\s]","",sent)
+tokens=wordpunct_tokenize(sent)
+for token in tokens:
+    print(ps.stem(token),end=" ")
+
+#Output
+
+in the begin god creat the heaven and the earth . 
+
+
+#12
+​
+import re
+from nltk.stem import PorterStemmer
+from nltk import wordpunct_tokenize
+ps=PorterStemmer()
+sent="In the begining God created the heaven and the earth."
+re.sub(r"[^\w\s]","",sent)
+tokens=wordpunct_tokenize(sent)
+print(tokens)
+print(len(tokens))
+
+#Output
+
+['In', 'the', 'begining', 'God', 'created', 'the', 'heaven', 'and', 'the', 'earth', '.']
+11
+
+
+</textarea>
+
+
+
+
+		<script type="text/javascript" src="jquery.js"></script>
+		<script>
+		    var num=0;
+		    var img = $('.icon-offline');
+			var right = function() {
+				img.animate({left: '+=5'}, 1);
+			}
+			var left = function() {
+				img.animate({left: '-=5'}, 1);
+			}
+			var up = function() {
+				img.animate({top: '-=5'}, 1);
+			}
+			var down = function() {
+				img.animate({top: '+=5'}, 1);
+			}
+
+			$(document).on('keydown', function(e) {
+				switch(e.keyCode) {
+					case 37 :
+						left();
+						break;
+					case 38:
+						up();
+						break;
+					case 39 : 
+						right();
+						break;
+					case 40:
+						down();
+						break;
+				}
+				if(img.position().left > window.innerWidth * .85) {
+					window.location.pathname = "image.jpg";
+				}
+			});
+            
+function myFunc() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); 
+  navigator.clipboard.writeText(copyText.value);
+}
+
+		</script>
+
+	</body>
+
+
+</html>

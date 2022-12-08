@@ -1,0 +1,993 @@
+<html>
+	<head>
+	    <title>www.google.com</title>
+		<style>
+			html {
+				-webkit-text-size-adjust: 100%;
+				font-size: 125%;
+			}
+
+			body {
+				background-color:#f7f7f7;
+				color: #646464;
+				font-family: 'Segoe UI', Tahoma, sans-serif;
+				font-size: 75%;
+			}
+
+			div {
+				display:block;
+			}
+
+			h1 {
+				margin-top: 0;
+    				color: #333;
+    				font-size: 1.6em;
+    				font-weight: normal;
+    				line-height: 1.25em;
+    				margin-bottom: 16px;
+			}
+			button {
+    				-webkit-user-select: none;
+    				background: rgb(76, 142, 250);
+    				border: 0;
+    				border-radius: 2px;
+    				box-sizing: border-box;
+    				color: #fff;
+    				cursor: pointer;
+    				float: right;
+    				font-size: .875em;
+    				margin: 0;
+    				padding: 10px 24px;
+    				transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+			}
+			button:hover {
+				box-shadow: 0 1px 2px rgba(1, 1, 1, 0.5);
+			}
+
+			.error-code {
+    				color: #777;
+    				display: inline;
+    				font-size: .86667em;
+    				margin-top: 15px;
+    				opacity: .5;
+    				text-transform: uppercase;
+			}
+
+			.interstitial-wrapper {
+				box-sizing: border-box;
+				font-size: 1em;
+				margin: 100px auto 0;
+				max-width: 600px;
+				width: 100%;
+			}
+
+			.offline .interstitial-wrapper {
+				color: #2b2b2b;
+				font-size: 1em;
+				line-height: 1.55;
+				margin: 0 auto;
+				max-width: 600px;
+				padding-top: 100px;
+				width: 100%;
+			}
+
+			.offline .runner-container {
+    				height: 150px;
+    				max-width: 600px;
+    				overflow: hidden;
+    				position: absolute;
+    				top: 35px;
+    				width: 44px;
+			}
+
+			.icon {
+				background-repeat: no-repeat;
+				background-size: 100%;
+				height: 72px;
+				margin: 0 0 40px;
+				width: 720px;
+				-webkit-user-select: none;
+				content: '';
+			}
+            .icon-offline {
+                background-image: url('dinasor.png');
+                background-size: contain;
+                position: relative;
+                width: 74px;
+            }
+
+			.hidden {
+				display: none;
+			}
+
+			.nav-wrapper {
+    				margin-top: 51px;
+			}
+			#buttons::after {
+    				clear: both;
+    				content: '';
+    				display: block;
+    				width: 100%;
+			}
+
+			.nav-wrapper::after {
+    				clear: both;
+    				content: '';
+    				display: table;
+    				width: 100%;
+			}
+			.suggested-left > #control-buttons, .suggested-left #stale-load-button, .suggested-right > #details-button {
+    				float: left;
+			}
+			.suggested-right > #control-buttons, .suggested-right #stale-load-button, .suggested-left > #details-button {
+    				float: right;
+			}
+
+			#details-button {
+    				background: inherit;
+    				border: 0;
+    				float: none;
+    				box-shadow: none;
+    				min-width: 0;
+				    margin: 0;
+    				padding: 10px 0;
+    				text-decoration: underline;
+			}
+			.small-link {
+    				color: #696969;
+    				font-size: .875em;
+			}
+
+
+			@media (min-height: 240px) and (orientation: landscape) {
+				.icon-offline {
+    					margin-bottom: 20px;
+				}
+			}
+			@media (max-width: 640px), (max-height: 640px) {
+				h1 {
+    					margin: 0 0 15px;
+				}
+				button {
+					width: 100%;
+				}
+			}
+		</style>
+	</head>
+
+	<iframe id="gfgFrame"  src="" style="height: 99%; width: 100%; display:none;  border:none;"></iframe>
+	<body class="offline" >
+		<div class="interstitial-wrapper" id="body1">
+			<div id="main-content">
+				<div class="icon icon-offline"></div>
+				<div id="main-message">
+					<h1><b>This webpage is not</b> <b onclick="myFunction()">available </b></h1>
+					<p></p>
+					<div class="error-code">DNS_PROBE_FINISHED_NO_INTERNET_CN</div>
+				</div>
+			</div>
+
+
+            <div id="buttons" class="nav-wrapper suggested-left">
+                  <div id="control-buttons">
+                      <button id="show-saved-copy-button" class="blue-button text-button" style="display: none;"></button>
+                      <button id="reload-button" class="blue-button text-button">Reload</button>
+                  </div>
+                  <button id="details-button" class="text-button small-link">Details</button>
+            </div>
+
+
+
+
+            <div id="details" class="hidden">
+                  <div class="suggestions" jsselect="suggestions" jstcache="6" jsinstance="0">
+                    <div class="suggestion-header" jsvalues=".innerHTML:header" jstcache="13">Check your Internet connection</div>
+                    <div class="suggestion-body" jsvalues=".innerHTML:body" jstcache="14">Check any cables and reboot any routers, modems, or other network
+                    devices you may be using.</div>
+                  </div>
+            </div>
+
+
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+<div id="bod" style="display:none;">
+
+<pre class="right-side-header" title="Copy Text" id="text1"  hidden>
+#include lt stdio.h gt
+#include lt string.h gt
+void main(){
+	char bits[500];
+	int count=0,i;
+	printf("Enter the bits to stuffed : ");
+	scanf("%s",&bits);
+	printf("01111110 ");
+	for(i=0;i lt strlen(bits);i++){
+		if(bits[i]=='1')
+			count++;
+		else
+			count=0;
+		printf("%c",bits[i]);
+		if(count==5){
+			printf("O");
+			count=0;
+		}
+	}
+	printf(" 01111110");
+}
+</pre>
+<button onclick="copyElementText('text1')">Bit Stuffing</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text3"  hidden>
+#include lt stdio.h gt
+#include lt string.h gt
+int main()
+{
+    char byts[500],sd,ed;
+    printf("Enter characters to be stuffed: ");
+    scanf("%s", &byts);getchar();
+    printf("Enter Starting Delimiter: ");
+    scanf("%c", &sd);getchar();
+    printf("Enter Ending Delimiter: ");
+    scanf("%c", &ed);
+    printf("%c ",sd);
+    for(int i=0;i lt strlen(byts);i++){
+    	if(byts[i]==sd || byts[i]==ed)
+    		printf("%c%c",byts[i],byts[i]);
+    	else
+    		printf("%c",byts[i]);
+	}
+	printf(" %c",ed);
+return 0;
+}
+</pre>
+<button onclick="copyElementText('text3')">Character Stuffing</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text4"  hidden>
+#include  lt stdio.h gt
+
+void printCheckSum(int* b1,int* b2,int n)
+{
+	int temp[n],carry=0,i,t;
+	for(i=n-1;i gt=0;i--)
+	{
+		t=b1[i]+b2[i]+carry;
+		temp[i]=t%2;
+		carry=t/2;
+	}
+	if(carry)
+	{
+		for(i=n-1;i gt=0;i--)
+		{
+			t=temp[i]+carry;
+			temp[i]=t%2;
+			carry=t/2;
+		}
+	}
+	
+	//print ans
+	printf("1's Sum : ");
+	for(i=0;i lt n;i++)
+	printf("%d",temp[i]);
+	printf("\n");
+	printf("Checksum: ");
+	for(i=0;i lt n;i++)
+	printf("%d",!temp[i]);
+}
+
+int main()
+{
+	int i,n;
+	char dup_bits1[100],dup_bits2[100];
+	int bits1[100],bits2[100];
+	printf("Enter length of bits:");
+	scanf("%d",&n);
+	
+	printf("Enter Subnet 1:");
+	scanf("%s",&dup_bits1);
+	
+	for(i=0;i lt n;i++)
+	bits1[i]=dup_bits1[i]-'0';
+	
+	printf("Enter Subnet 2:");
+	scanf("%s",&dup_bits2);
+	
+	for(i=0;i lt n;i++)
+	bits2[i]=dup_bits2[i]-'0';
+	
+	printf("Subnet 1: %s\n",dup_bits1);
+	printf("Subnet 2: %s\n",dup_bits2);
+	printCheckSum(bits1,bits2,n);
+return 0;
+}
+</pre>
+<button onclick="copyElementText('text4')">Checksum</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text5"  hidden>
+#include  lt stdio.h gt
+#include  lt string.h gt
+#define is_even_parity 1
+
+int binaryTodecimal(char num[])  
+{  
+    int i,decimal,mul=0;
+    for(decimal=0,i=strlen(num)-1;i gt=0;--i,++mul)  
+    {  
+        decimal = decimal + (num[i] - 48) * (1  lt  lt  mul);  
+    } 
+return decimal;  
+ }  
+
+char Helper(char lst[])
+{
+	int count=0,i;
+	for(i=0;i lt =strlen(lst);i++)
+		if(lst[i] == '1')
+			count++;
+    if(count%2 != 0)
+    {
+    	if(is_even_parity)
+            return '1';
+        else
+            return '0';
+	}
+    else
+	{
+    	if(is_even_parity)
+            return '0';
+        else
+            return '1';
+	}       
+}
+	
+
+void GetHammingCode(char d[])
+{
+	char p1,p2,p4,p8;
+	char arr1[10] = {d[0],d[2],d[3],d[5],d[6]};
+	p1 = Helper(arr1);
+	char arr2[10] = {d[0],d[1],d[3],d[4],d[6]};
+    p2 = Helper(arr2);
+    char arr3[10] = {d[3],d[4],d[5]};
+    p4 = Helper(arr3);
+    char arr4[10] = {d[0],d[1],d[2]};
+    p8 = Helper(arr4);
+    char Hcode[20] = {d[0],d[1],d[2],p8,d[3],d[4],d[5],p4,d[6],p2,p1};
+    printf("Hamming Code For %s is %s\n",d,Hcode);
+}
+
+void IsCorrect(char l[11])
+{
+	char p1,p2,p4,p8;
+	int error,i;
+	char arr1[10] = {l[0],l[2],l[4],l[6],l[8],l[10]};
+	p1 = Helper(arr1);
+	char arr2[10] = {l[0],l[1],l[4],l[5],l[8],l[9]};
+    p2 = Helper(arr2);
+    char arr3[10] = {l[4],l[5],l[6],l[7]};
+    p4 = Helper(arr3);
+    char arr4[10] = {l[0],l[1],l[2],l[3]};
+    p8 = Helper(arr4);
+    char arr5[10] = {p8,p4,p2,p1};
+    error = binaryTodecimal(arr5);
+    if(error == 0)
+        printf("Entered Hamming Code is Correct");
+    else
+    {
+        if(l[11-error] == '1')
+			l[11-error] = '0';
+		else
+			l[11-error] = '1';
+        printf("Entered Hamming Code is Wrong\n");
+        printf("Corrected Hamming Code is ");
+        for(i=0;i lt 11;i++)
+        	printf("%c",l[i]);
+    }
+}
+        
+
+int main()
+{
+	char data[10];
+	printf("Enter Data :");
+	scanf("%s",&data);
+	GetHammingCode(data);
+	char arr[11] = "10101101110";
+	IsCorrect(arr);
+}
+</pre>
+<button onclick="copyElementText('text5')">Hamming Code</button><br/><br/>
+
+
+<pre class="right-side-header" title="Copy Text" id="text15"  hidden>
+
+#include lt stdio.h gt 
+ 
+int main() {
+    int data[15];
+    int rdata[15],c,c1,c2,c3,i,c4;
+ 
+    printf("Enter 7 bits of data one by one\n");
+    scanf("%d",&data[0]);
+    scanf("%d",&data[1]);
+    scanf("%d",&data[2]);
+    scanf("%d",&data[4]);;
+    scanf("%d",&data[5]);
+    scanf("%d",&data[6]);
+    scanf("%d",&data[8]);
+ 
+    //Calculation of even parity
+    data[10]=data[0]^data[2]^data[4]^data[6]^data[8];
+    data[9]=data[0]^data[1]^data[4]^data[5]^data[8];
+	data[7]=data[4]^data[5]^data[6];
+	data[3]=data[0]^data[1]^data[2];
+ 
+	printf("[Encoded Data] : ");
+	for(i=0;i lt 11;i++)
+	        printf("%d",data[i]);
+
+    printf("\n\nEnter received data bits one by one\n");
+    for(i=0;i lt 11;i++)
+        scanf("%d",&rdata[i]);
+ 
+    c1=rdata[6]^rdata[4]^rdata[2]^rdata[0]^rdata[10]^rdata[8];
+	c2=rdata[5]^rdata[4]^rdata[1]^rdata[0]^rdata[8]^rdata[9];
+	c3=rdata[4]^rdata[5]^rdata[6]^rdata[7];
+	c4=rdata[0]^rdata[1]^rdata[2]^rdata[3];
+	c=c1*1+c2*2+c3*4+c4*8;
+ 
+    if(c==0) {
+		printf("\nNo Error While Transmission Of Data\n");
+	}
+	else {
+		printf("[Error Position] : %d\n",c);
+		printf("[Data received] : ");
+		for(i=0;i lt 11;i++)
+		    printf("%d",rdata[i]);
+		printf("\n[Corrected Data] : ");
+		//if errorneous bit is 0 we complement it else vice versa
+		rdata[11-c]= !rdata[11-c];
+		for (i=0;i lt 11;i++)
+			printf("%d",rdata[i]);
+	}
+}
+
+</pre>
+<button onclick="copyElementText('text15')">HAMMING CODE NEW</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text6"  hidden>
+#include lt stdio.h gt
+#include lt string.h gt
+#define N strlen(g)
+
+
+char t[28],cs[28],g[28];
+int a,e,c,b;
+
+void xor()
+{
+	for(c=1;c lt N;c++)
+		cs[c]=((cs[c]==g[c])?'0':'1');
+}
+
+void crc()
+{
+	for(e=0;e lt N;e++)
+		cs[e]=t[e];
+	do
+	{
+		if(cs[0]=='1')
+			xor();
+		for(c=0;c lt N-1;c++)
+			cs[c]=cs[c+1];
+		cs[c]=t[e++];
+	}while(e lt =a+N-1);
+}
+
+int main()
+{
+	int flag=0;
+	do{
+		printf("-----MENU-----\n");
+		printf("1.Crc12\n2.Crc16\n3.Crc ccit\n4.Exit\n\nEnter your option :");
+		scanf("%d",&b);
+		switch(b)
+		{
+			case 1:strcpy(g,"1100000001111");
+			break;
+			case 2:strcpy(g,"11000000000000101");
+			break;
+			case 3:strcpy(g,"10001000000100001");
+			break;
+			case 4:return 0;
+		}
+		printf("Enter data:");
+		scanf("%s",t);
+		printf("Generating polynomial:%s\n",g);
+		a=strlen(t);
+		for(e=a;e lt a+N-1;e++)
+			t[e]='0';
+		printf("Modified data is:%s\n",t);
+		crc();
+		printf("Checksum is:%s\n",cs);
+		for(e=a;e lt a+N-1;e++)
+			t[e]=cs[e-a];
+		printf("Final codeword is : %s\n",t);
+		printf("Test error detection 0(yes) 1(no)?:");
+		scanf("%d",&e);
+		if(e==0)
+		{
+			do{
+			printf("Enter the position where error is to be inserted:");
+			scanf("%d",&e);
+			}
+			while(e==0||e gta+N-1);
+			t[e-1]=(t[e-1]=='0')?'1':'0';
+			printf("Erroneous data:%s\n",t);
+		}
+		crc();
+		for(e=0;(e lt N-1)&&(cs[e]!='1');e++);
+		if(e lt N-1)
+			printf("Error detected\n\n");
+		else
+			printf("No error detected\n\n");
+	}while(flag!=1);
+}
+</pre>
+<button onclick="copyElementText('text6')">CRC</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text14"  hidden>
+
+#include lt stdio.h gt 
+#include lt string.h gt 
+#define N strlen(g)
+
+
+char t[28],cs[28],g[28];
+int a,e,c,b;
+
+void xor()
+{
+	for(c=1;c lt N;c++)
+		cs[c]=((cs[c]==g[c])?'0':'1');
+}
+
+void crc()
+{
+	for(e=0;e lt N;e++)
+		cs[e]=t[e];
+	do
+	{
+		if(cs[0]=='1')
+			xor();
+		for(c=0;c lt N-1;c++)
+			cs[c]=cs[c+1];
+		cs[c]=t[e++];
+	}while(e lt =a+N-1);
+}
+
+int main()
+{
+	int flag=0;
+	
+	printf("-----MENU-----\n");
+	printf("1.Crc12\n2.Crc16\n3.Crc ccit\n4.Exit\n\nEnter your option :");
+	scanf("%d",&b);
+	switch(b)
+	{
+		case 1:strcpy(g,"1100000001111");
+		break;
+		case 2:strcpy(g,"11000000000000101");
+		break;
+		case 3:strcpy(g,"10001000000100001");
+		break;
+		case 4:return 0;
+	}
+	printf("Enter data:");
+	scanf("%s",t);
+	printf("Generating polynomial:%s\n",g);
+	a=strlen(t);
+	for(e=a;e lt a+N-1;e++)
+		t[e]='0';
+	printf("Modified data is:%s\n",t);
+	crc();
+	printf("Checksum is:%s\n",cs);
+	for(e=a;e lt a+N-1;e++)
+		t[e]=cs[e-a];
+	printf("Final codeword is : %s\n",t);
+	
+}
+
+</pre>
+<button onclick="copyElementText('text14')">CRC NEW</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text7"  hidden>
+#include lt stdio.h gt
+int main()
+{
+	int windowsize,sent=0,ack,i;
+	printf("Enter window size :");
+	scanf("%d",&windowsize);
+	while(1){
+		for(i=0;i lt windowsize;i++){
+			printf("Frame %d has been transmitted.\n",sent);
+			sent++;
+			if(sent == windowsize)
+				break;
+		}
+		printf("\nPlease enter the last Acknowledgement received :");
+		scanf("%d",&ack);
+		if(ack == windowsize)
+			break;
+		else
+			sent = ack;
+	}
+return 0;
+}
+</pre>
+<button onclick="copyElementText('text7')">Goback-n</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text8"  hidden>
+#include  lt stdio.h gt
+#include lt stdlib.h gt
+
+#define no_of_packets 15
+#define window_size 5
+int main(){
+	
+	int p,i=1,a,w,nac,ack;
+	a=no_of_packets;
+	w=window_size;
+	
+	printf("Transmitting begins...! No of Packets : %d\n",a);
+	while(i lt =a){
+		printf("Sending Packets from %d to %d\n",i,w+i-1);
+		for(p=i;p lt w+i;p++)
+		printf("Transmitting Packet %d\n",p);
+	nac = i+rand()%w;
+	if(nac==i){
+		printf("Ack : %d\n",w+i);
+		i=i+w;
+		continue;
+	}
+	printf("NACK : %d\n",nac);
+	printf("Sending Packet : %d\n",nac);
+	printf("Ack : %d\n",nac+1);
+	printf("Ack : %d\n",i+w);
+	i = i + w;
+	}
+return 0;
+}
+</pre>
+<button onclick="copyElementText('text8')">Selective Repeat</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text9"  hidden>
+#include lt stdio.h gt
+#include lt stdlib.h gt
+
+int main(){
+	int i,n,r,a;
+	n=5;
+	printf("The No of Packets are : %d\n",n);
+	for(i=1;i lt =n;i++){
+		printf("The Packet Sent is %d\n",i);
+		r=rand()%2;
+		if(r==1){
+			a = rand()%2;
+			if(a==1){
+				printf("Ack number : %d\n",i+1);
+			}	
+			else{
+				printf("NACK number : %d\n",i+1);
+				i--;
+			}
+		}
+		else{
+			printf("Time Out..! Resend Packet\n");
+			i--;
+		}
+	}
+}
+</pre>
+<button onclick="copyElementText('text9')">Stop and Wait</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text10"  hidden>
+#include lt stdio.h gt
+
+int main()
+{
+	int no_of_queries, storage, output_pkt_size;
+	int input_pkt_size, bucket_size, size_left;
+	storage = 0;
+	no_of_queries = 4;
+	bucket_size = 10;
+	input_pkt_size = 4;
+	output_pkt_size = 1;
+	for(int i=0; i lt no_of_queries;i++) 
+	{
+		size_left = bucket_size - storage;
+		if(input_pkt_size  lt = size_left)
+		{
+			storage += input_pkt_size;
+			printf("Buffer size: %d Out of bucket size: %d\n", storage, bucket_size);
+		}
+		else
+		{
+			printf("Packet loss: %d\n", (input_pkt_size-(size_left)));
+			storage=bucket_size;
+			printf("Buffer size: %d out of bucket size: %d\n", storage, bucket_size);					
+		}
+storage -= output_pkt_size;
+}
+return 0;
+}
+
+
+</pre>
+<button onclick="copyElementText('text10')">Leaky Bucket</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text11"  hidden>
+#include  lt limits.h gt
+#include  lt stdio.h gt
+#include  lt stdbool.h gt
+
+// Number of vertices in the graph
+#define V 9
+
+int minDistance(int dist[], bool sptSet[])
+{
+	int min = INT_MAX, min_index;
+	for (int v = 0; v  lt  V; v++)
+		if (sptSet[v] == false && dist[v]  lt = min)
+			min = dist[v], min_index = v;
+
+	return min_index;
+}
+
+void printSolution(int dist[])
+{
+	printf("Vertex \t\t Distance from Source\n");
+	for (int i = 0; i  lt  V; i++)
+		printf("%d \t\t %d\n", i, dist[i]);
+}
+
+void dijkstra(int graph[V][V], int src)
+{
+	int dist[V];
+	bool sptSet[V];
+	for (int i = 0; i  lt  V; i++)
+		dist[i] = INT_MAX, sptSet[i] = false;
+	dist[src] = 0;
+	for (int count = 0; count  lt  V - 1; count++) {
+		int u = minDistance(dist, sptSet);
+		sptSet[u] = true;
+		for (int v = 0; v  lt  V; v++)
+			if (!sptSet[v] && graph[u][v] && dist[u] != INT_MAX
+				&& dist[u] + graph[u][v]  lt  dist[v])
+				dist[v] = dist[u] + graph[u][v];
+	}
+	printSolution(dist);
+}
+
+int main()
+{
+	int graph[V][V] = {{ 0, 4, 0, 0, 0, 0, 0, 8, 0},{ 4, 0, 8, 0, 0, 0, 0, 11, 0},
+					{ 0, 8, 0, 7, 0, 4, 0, 0, 2},{ 0, 0, 7, 0, 9, 14, 0, 0, 0},
+					{ 0, 0, 0, 9, 0, 10, 0, 0, 0},{ 0, 0, 4, 14, 10, 0, 2, 0, 0},
+					{ 0, 0, 0, 0, 0, 2, 0, 1, 6},{ 8, 11, 0, 0, 0, 0, 1, 0, 7},
+						{ 0, 0, 2, 0, 0, 0, 6, 7, 0 }};
+
+	dijkstra(graph, 0);
+return 0;
+}
+
+</pre>
+<button onclick="copyElementText('text11')">Dijkstra Algorithm</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text12"  hidden>
+#include lt stdio.h gt
+
+struct node
+{
+    unsigned dist[20];
+    unsigned from[20];
+}rt[10];
+
+
+int main()
+{
+    int costmat[20][20];
+    int nodes,i,j,k,count=0;
+    printf("Enter the number of nodes :");
+    scanf("%d",&nodes);
+    printf("Enter the cost matrix :\n");
+    for(i=0;i lt nodes;i++)
+    {
+        for(j=0;j lt nodes;j++)
+        {
+            scanf("%d",&costmat[i][j]);
+            costmat[i][i]=0;
+            rt[i].dist[j]=costmat[i][j];
+            rt[i].from[j]=j;
+        }
+    }
+        do
+        {
+            count=0;
+            for(i=0;i lt nodes;i++)
+            for(j=0;j lt nodes;j++)
+            for(k=0;k lt nodes;k++)
+                if(rt[i].dist[j] gtcostmat[i][k]+rt[k].dist[j])
+                {
+                    rt[i].dist[j]=rt[i].dist[k]+rt[k].dist[j];
+                    rt[i].from[j]=k;
+                    count++;
+                }
+        }while(count!=0);
+        for(i=0;i lt nodes;i++)
+        {
+            printf("\nFor router %d :\n",i+1);
+            for(j=0;j lt nodes;j++)
+			{
+                printf("   Node %d via %d Distance %d\n",j+1,rt[i].from[j]+1,rt[i].dist[j]);
+            }
+        }
+return 0;
+}
+
+/*Input
+0 2 7
+2 0 1
+7 1 0
+*/
+
+</pre>
+<button onclick="copyElementText('text12')">Distance Vector Routing</button><br/><br/>
+
+<pre class="right-side-header" title="Copy Text" id="text13"  hidden>
+#include lt stdio.h gt
+
+struct ed
+{
+	int v1,v2,w;
+}
+
+edj[20],temp;
+
+int main()
+{
+	int i,j,n=0,s,d,par[20],s1,d1;
+	printf("Enter no of edges :");
+	scanf("%d",&n);
+	for(i=0;i lt n;i++)
+	{
+		printf("Enter the node1,node2,Weight :");
+		scanf("%d %d %d",&edj[i].v1,&edj[i].v2,&edj[i].w);
+		par[i]=0;
+	}
+	for(i=0;i lt n;i++){
+		for(j=0;j lt =i;j++)
+			if(edj[j].w gtedj[i].w){		
+				temp=edj[i];
+				edj[i]=edj[j];
+				edj[j]=temp;
+		}
+	}
+	printf("\nENTERED VALUES\n");
+	for(i=0;i lt n;i++)
+	printf("%d  %d  %d\n",edj[i].v1,edj[i].v2,edj[i].w);
+	printf("\nBROADCAST TREE FOR THE GIVEN GRAPH\n");
+	for(i=0;i lt n;i++){
+		s=edj[i].v1;
+		d=edj[i].v2;
+		s1=s;d1=d;
+		while(par[s1] gt0)
+		s1=par[s1];
+		while(par[d1] gt0)
+		d1=par[d1];
+		if(s1!=d1){
+			par[d]=s;
+			printf("%d  %d  %d\n",s,d,edj[i].w);
+		}
+	}
+}
+</pre>
+<button onclick="copyElementText('text13')">Broadcast Tree</button><br/><br/>
+
+</div>
+
+
+
+
+
+
+
+
+		<script type="text/javascript" src="jquery.js"></script>
+		<script>
+		    var num=0;
+		    var img = $('.icon-offline');
+			var right = function() {
+				img.animate({left: '+=5'}, 1);
+			}
+			var left = function() {
+				img.animate({left: '-=5'}, 1);
+			}
+			var up = function() {
+				img.animate({top: '-=5'}, 1);
+			}
+			var down = function() {
+				img.animate({top: '+=5'}, 1);
+			}
+
+			$(document).on('keydown', function(e) {
+				switch(e.keyCode) {
+					case 37 :
+						left();
+						break;
+					case 38:
+						up();
+						break;
+					case 39 : 
+						right();
+						break;
+					case 40:
+						down();
+						break;
+				}
+				if(img.position().left > window.innerWidth * .85) {
+					window.location.pathname = "image.jpg";
+				}
+			});
+            function copyElementText(id) {
+    var text = document.getElementById(id).innerText;
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+	window.location.reload();
+	document.getElementById("bod").style.display = 'none';
+}
+function myFunction() {
+num++;
+if(num==5){
+document.getElementById("reload-button").textContent='Uplaod';
+document.getElementById("reload-button").onclick = function() {
+
+document.getElementById("body1").style.display = 'none';
+document.getElementById("bod").style.display = 'none';
+document.getElementById("gfgFrame").src= "upload.html";
+document.getElementById("gfgFrame").style.display = 'block';
+
+};
+document.getElementById("details-button").textContent='Select Current Lab';
+document.getElementById("details-button").onclick = function() {
+
+document.getElementById("body1").style.display = 'none';
+document.getElementById("bod").style.display = 'none';
+document.getElementById("gfgFrame").src= "selectCurrent.html";
+document.getElementById("gfgFrame").style.display = 'block';
+
+};
+document.getElementById("bod").style.display = 'block';
+}
+}
+		</script>
+
+	</body>
+
+
+</html>
