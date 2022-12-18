@@ -2,9 +2,32 @@
 <head>
 <title>www.google.com</title>
 <link rel='Shortcut Icon' type='image/x-icon' href='logo1.png'>
+<style type="text/css">
+        html {
+            overflow: auto;
+        }
+          
+        html,
+        body,
+        div,
+        iframe {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            border: none;
+        }
+          
+        iframe {
+            display: block;
+            width: 100%;
+            border: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    </style>
 </head>
-<iframe id="gfgFrame" src="" style="height: 99%; width: 100%; border:none;"></iframe>
 <body>
+<iframe id="gfgFrame" src="" style="height: 99%; width: 100%; border:none;"></iframe>
 	<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
 	<script type="text/javascript">
 	var file;
