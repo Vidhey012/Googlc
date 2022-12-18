@@ -215,7 +215,7 @@ for i in range(7501):
 association_rules = list(apriori(transactions=trans,min_support=0.0045,min_confidence=0.3,min_lift=3,max_length=2))
 for item in association_rules:
     items = [x for x in item[0]]
-    print("Rule: " + items[0] + " -- " + items[1])
+    print("Rule: " + items[0] + " -&gt; " + items[1])
     print("Support: " + str(item[1]))
     print("Confidence: " + str(item[2][0][2]))
     print("Lift: " + str(item[2][0][3]))
