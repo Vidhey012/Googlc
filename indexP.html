@@ -848,34 +848,226 @@ ch2=ch1;
 	
 <pre class="right-side-header" title="Copy Text" id="text10"  hidden>
 
+
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+#include&lt;stdlib.h&gt;
+int k=0,z=0,i=0,j=0,c=0;
+char a[16],ac[20],stk[15],act[10];
+void check();
+int main()
+{
+ puts("---GRAMMAR---\n E-&gt;E+E\n E-&gt;E*E\n E-&gt;(E)\n E-&gt;id");
+ puts("Enter input string:");
+ gets(a);
+ c=strlen(a);
+ strcpy(act,"SHIFT-&gt;");
+ puts("stack \t input \t action");
+ for(k=0,i=0; j&lt;c; k++,i++,j++)
+ {
+ if(a[j]=='i' && a[j+1]=='d')
+ {
+ stk[i]=a[j];
+ stk[i+1]=a[j+1];
+ stk[i+2]='\0';
+ a[j]=' ';
+ a[j+1]=' ';
+ printf("\n$%s\t%s$\t%sid",stk,a,act);
+ check();
+ }
+ else
+ {
+ stk[i]=a[j];
+ stk[i+1]='\0';
+ a[j]=' ';
+ printf("\n$%s\t%s$\t%ssymbols",stk,a,act);
+ check();
+ }
+ }
+}
+void check()
+ {
+strcpy(ac,"REDUCE TO E");
+ for(z=0; z&lt;c; z++)
+ if(stk[z]=='i' && stk[z+1]=='d')
+ {
+ stk[z]='E';
+ stk[z+1]='\0';
+ printf("\n$%s\t%s$\t%s",stk,a,ac);
+ j++;
+ }
+ for(z=0; z&lt;c; z++)
+ if(stk[z]=='E' && stk[z+1]=='+' && stk[z+2]=='E')
+ {
+ stk[z]='E';
+ stk[z+1]='\0';
+ stk[z+2]='\0';
+ printf("\n$%s\t%s$\t%s",stk,a,ac);
+ i=i-2;
+ }
+ for(z=0; z&lt;c; z++)
+ if(stk[z]=='E' && stk[z+1]=='*' && stk[z+2]=='E')
+ {
+ stk[z]='E';
+ stk[z+1]='\0';
+ stk[z+1]='\0';
+ printf("\n$%s\t%s$\t%s",stk,a,ac);
+ i=i-2;
+ }
+ for(z=0; z&lt;c; z++)
+ if(stk[z]=='(' && stk[z+1]=='E' && stk[z+2]==')')
+ {
+ stk[z]='E';
+ stk[z+1]='\0';
+ stk[z+1]='\0';
+ printf("\n$%s\t%s$\t%s",stk,a,ac);
+ i=i-2;
+ }
+ }
+
+
 </pre>
-<button onclick="copyElementText('text10')">P</button><br/><br/>
+<button onclick="copyElementText('text10')">Shift Reduce</button><br/><br/>
 	
 <pre class="right-side-header" title="Copy Text" id="text11"  hidden>
 
+%{
+#include&lt;stdio.h&gt;
+int op = 0, i;
+float a, b;
+void digi();
+%}
+%%
+[0-9]+|([0-9]*)"."([0-9]+) digi();
+"+" op = 1;
+"-" op = 2;
+"*" op = 3;
+"/" op = 4;
+"^" op = 5;
+";" exit(0);
+\n printf("The Answer : %f\nEnter expression : ", a);
+%%
+void digi() {
+ if (op == 0) a = atof(yytext);
+ else {
+ b = atof(yytext);
+ switch(op) {
+ case 1: a = a + b; break;
+ case 2: a = a - b; break;
+ case 3: a = a * b; break;
+ case 4: a = a / b; break;
+ case 5: for (i = a; b &gt; 1; b--) a = a * i; break;
+ }
+ op=0;
+ }
+}
+void main(int argv,char *argc[]) {
+ printf("\nEnter expression : ");
+ yylex();
+}
+int yywrap() {
+ return 1;
+}
+
+
 </pre>
-<button onclick="copyElementText('text11')">P</button><br/><br/>
+<button onclick="copyElementText('text11')">Calculator</button><br/><br/>
 	
 <pre class="right-side-header" title="Copy Text" id="text12"  hidden>
 
+#include&lt;stdio.h&gt;
+void postfix(char A[], char B[])
+{
+int i,n,tp,j=-1;
+char s[2][1000],e;
+s[0][0]='&';
+s[1][tp=0]=100;
+for(i=0;A[i]!='\0';i++);
+n=i;
+for(i=0;i&lt;n;i++)
+{
+e=A[i];
+if(e==32)
+continue;
+if((e&lt;123&&e&gt;96)||(e&lt;91&&e&gt;64))
+{
+B[++j]=e;
+}
+else if(e=='(')
+{
+s[++tp][0]=e;
+s[tp][1]=1;
+}
+else if(e==')')
+{
+while(s[tp][0]!='(')
+B[++j]=s[tp--][0];
+tp--;
+}
+else if(e=='+'||e=='-')
+{
+while (s[tp][1]&gt;=2)
+B[++j]=s[tp--][0];
+s[++tp][0]=e;
+s[tp][1]=2;
+}
+else if(e=='*'||e=='/'||e=='%')
+{
+while(s[tp][1]&gt;=3)
+B[++j]=s[tp--][0];
+s[++tp][0]=e;
+s[tp][1]=3;
+}
+else if(e=='^')
+{
+while(s[tp][1]&gt;4)
+B[++j]=s[tp--][0];
+s[++tp][0]=e;
+s[tp][1]=4;
+}
+}
+for(i=tp;i&gt;0;i--)
+B[++j]=s[i][0];
+B[++j]='\0';
+}
+void three_add_code(char A[])
+{
+char B[1000],e,a,b;
+int i,tp=-1;
+for(i=0;A[i]!='\0';i++)
+{
+e=A[i];
+if(e&lt;123&&e&gt;96)
+{
+B[++tp]=e;
+continue;
+}
+b=B[tp--];
+a=B[tp--];
+printf("t = %c %c %c\n",a,e,b);
+B[++tp]='t';
+}
+}
+int main()
+{
+char A[1000],B[1000];
+printf("\nExpression : ");
+scanf("%[^\n]s", A);
+postfix(A, B);
+printf("postfix : %s\n\n", B);
+three_add_code(B);
+return 0;
+}
+
+
 </pre>
-<button onclick="copyElementText('text12')">P</button><br/><br/>
+<button onclick="copyElementText('text12')">3 adress code</button><br/><br/>
 	
 <pre class="right-side-header" title="Copy Text" id="text13"  hidden>
 
 </pre>
 <button onclick="copyElementText('text13')">P</button><br/><br/>
-	
-<pre class="right-side-header" title="Copy Text" id="text14"  hidden>
 
-</pre>
-<button onclick="copyElementText('text14')">P</button><br/><br/>
-	
-<pre class="right-side-header" title="Copy Text" id="text15"  hidden>
-
-</pre>
-<button onclick="copyElementText('text15')">P</button><br/><br/>
-	
 	
 	
 
