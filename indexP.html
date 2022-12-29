@@ -205,9 +205,215 @@
 <div id="bod" style="display:none;">
 
 <pre class="right-side-header" title="Copy Text" id="text1"  hidden>
-&lt;hii&gt;
+
+#include &lt;stdbool.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+int identifiercount;
+int operatorcount;
+int keywordcount;
+int integercount;
+int hfilecount;
+bool isValidDelimiter(char ch){
+ if (ch == ' ' || ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == ',' || ch == ';' || ch == '&gt;' ||
+ ch == '&lt;' || ch == '=' || ch == '(' || ch == ')' || ch == '[' || ch == ']' || ch == '{' || ch == '}'){
+ return(true);
+ }
+ return (false);
+}
+bool preprodir(char *str){
+ int i;
+for(i=0;i&lt;strlen(str);i++){
+if(str[i]=='.' && str[i+1]=='h'){
+hfilecount++;
+return (true);
+}
+}
+return (false);
+}
+bool isValidOperator(char ch){
+ if (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '&gt;' || ch == '&lt;' || ch == '='){
+ operatorcount++;
+ return (true);
+ }
+ return (false);
+}
+bool isvalidIdentifier(char* str){
+ if ((str[0] &gt;= 'a' &&str[0]&lt;='z') || (str[0] &gt;= 'A' &&str[0]&lt;='Z') || str[0]=='_'
+ && isValidDelimiter(str[0]) == false && str[0]!= '#'){
+ identifiercount++;
+ return (true);
+}
+ return (false);
+}
+bool isValidKeyword(char* str){
+ if (!strcmp(str, "if") || !strcmp(str, "else") || !strcmp(str, "while") || !strcmp(str, "do") || !strcmp(str, "break")
+ || !strcmp(str, "continue") || !strcmp(str, "int") || !strcmp(str, "double") || !strcmp(str, "float")
+|| !strcmp(str, "return") || !strcmp(str, "char") || !strcmp(str, "case") || !strcmp(str, "char")
+ || !strcmp(str, "sizeof") || !strcmp(str, "long") || !strcmp(str, "short") || !strcmp(str, "typedef")
+|| !strcmp(str, "switch") || !strcmp(str, "unsigned") || !strcmp(str, "void") || !strcmp(str, "static")
+|| !strcmp(str, "struct") || !strcmp(str, "goto")){
+ keywordcount++;
+ return (true);
+ }
+ return (false);
+}
+bool isValidInteger(char* str){
+ int i, len = strlen(str);
+ if (len == 0)
+ return (false);
+ for (i = 0; i &lt; len; i++) {
+ if (str[i] != '0' && str[i] != '1' && str[i] != '2'&& str[i] != '3' && str[i] != '4' && str[i] != '5'
+ && str[i] != '6' && str[i] != '7' && str[i] != '8' && str[i] != '9' || (str[i] == '-' && i &gt; 0))
+ return (false);
+ }
+ integercount++;
+ return (true);
+}
+bool isRealNumber(char* str){
+ int i, len = strlen(str);
+ bool hasDecimal = false;
+ if (len == 0)
+ return (false);
+ for (i = 0; i &lt; len; i++) {
+ if (str[i] != '0' && str[i] != '1' && str[i] != '2' && str[i] != '3' && str[i] != '4' && str[i]!= '5'
+&& str[i] != '6' && str[i] != '7' && str[i] != '8' && str[i] != '9' && str[i] != '.' || (str[i] == '-' && i &gt; 0))
+ return (false);
+ if (str[i] == '.')
+ hasDecimal = true;
+ }
+ return (hasDecimal);
+}
+char* subString(char* str, int left, int right){
+ int i;
+ char* subStr = (char*)malloc( sizeof(char) * (right - left + 2));
+ for (i = left; i &lt;= right; i++)
+ subStr[i - left] = str[i];
+ subStr[right - left + 1] = '\0';
+ return (subStr);
+}
+void detectTokens(char* str){
+ int left = 0, right = 0;
+ int length = strlen(str);
+ while (right &lt;= length && left &lt;= right){
+ if (isValidDelimiter(str[right]) == false)
+ right++;
+ if (isValidDelimiter(str[right]) == true && left == right){
+ if (isValidOperator(str[right]) == true)
+ printf("Valid operator : '%c'\n", str[right]);
+ right++;
+ left = right;
+ }
+else if (isValidDelimiter(str[right]) == true && left != right || (right == length && left != right)){
+ char* subStr = subString(str, left, right - 1);
+ if(preprodir(subStr)==true)
+ printf("Header file:'%s'\n",subStr);
+ else if (isValidKeyword(subStr) == true)
+ printf("Valid keyword : '%s'\n", subStr);
+ else if (isValidInteger(subStr) == true)
+ printf("Valid Integer : '%s'\n", subStr);
+ else if (isRealNumber(subStr) == true)
+ printf("Real Number : '%s'\n", subStr);
+ else if (isvalidIdentifier(subStr) == true && isValidDelimiter(str[right - 1]) == false)
+ printf("Valid Identifier : '%s'\n", subStr);
+ else if (isvalidIdentifier(subStr) == false && isValidDelimiter(str[right - 1]) == false)
+ printf("Invalid Identifier : '%s'\n", subStr);
+ left = right;
+ }
+ }
+ printf("No of identifiers:%d",identifiercount);
+ printf("\nNo of operators:%d",operatorcount);
+ printf("\nNo of keywords:%d",keywordcount);
+ printf("\nNo of integers:%d",integercount);
+printf("\nNo of headerfiles:%d",hfilecount);
+ return;
+}
+int main(){
+ char str[100] ;
+ printf("Enter String:");
+ scanf("%[^\n]",str);
+ printf("The Program is:'%s'\n",str);
+ printf("-----Tokens are-----\n");
+ detectTokens(str);
+ return (0);
+}
+
 </pre>
-<button onclick="copyElementText('text1')">P</button><br/><br/>
+<button onclick="copyElementText('text1')">Tokens</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text2"  hidden>
+
+</pre>
+<button onclick="copyElementText('text2')">P</button><br/><br/>	
+	
+<pre class="right-side-header" title="Copy Text" id="text3"  hidden>
+
+</pre>
+<button onclick="copyElementText('text3')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text4"  hidden>
+
+</pre>
+<button onclick="copyElementText('text4')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text5"  hidden>
+
+</pre>
+<button onclick="copyElementText('text5')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text6"  hidden>
+
+</pre>
+<button onclick="copyElementText('text6')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text7"  hidden>
+
+</pre>
+<button onclick="copyElementText('text7')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text8"  hidden>
+
+</pre>
+<button onclick="copyElementText('text8')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text9"  hidden>
+
+</pre>
+<button onclick="copyElementText('text9')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text10"  hidden>
+
+</pre>
+<button onclick="copyElementText('text10')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text11"  hidden>
+
+</pre>
+<button onclick="copyElementText('text11')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text12"  hidden>
+
+</pre>
+<button onclick="copyElementText('text12')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text13"  hidden>
+
+</pre>
+<button onclick="copyElementText('text13')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text14"  hidden>
+
+</pre>
+<button onclick="copyElementText('text14')">P</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text15"  hidden>
+
+</pre>
+<button onclick="copyElementText('text15')">P</button><br/><br/>
+	
+	
+	
 
 </div>
 
