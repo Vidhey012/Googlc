@@ -1065,8 +1065,77 @@ return 0;
 	
 <pre class="right-side-header" title="Copy Text" id="text13"  hidden>
 
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;string.h&gt;
+#include&lt;ctype.h&gt;
+void FIRST(char);
+void FOLLOW(char);
+int count,n=0,m=0,z,b;
+char prodn[10][10],first[10],follow[10];
+int main(){
+int i,choice;
+char c,ch;
+printf("\nenter how many productions:");
+scanf("%d",&count);
+printf("\nenter %d productions:\n",count);
+for(i=0;i&lt;count;i++)
+scanf("%s%c",prodn[i],&ch);
+do
+{
+n=0;
+m=0;
+printf("\nenter element to find first function of :");
+scanf("%c",&c);
+FIRST(c);
+printf("\n FIRST(%c)={",c);
+for(i=0;i&lt;n;i++)
+printf("%c ",first[i]);
+printf("}\n");
+printf("\npress 1 to continue");
+scanf("%d%c",&choice,&ch);
+printf("\nenter the element whose follow is to be found:");
+scanf("%c",&c);
+FOLLOW(c);
+printf("FOLLOW(%c)={",c);
+for(i=0;i&lt;m;i++)
+printf("%c%d ",follow[i],b);
+printf("$}\n");
+printf("do you want to continue(0/1)?");
+scanf("%d%c",&z,&ch);
+}
+while(choice==1 && z==1 );
+
+}
+void FOLLOW(char c){
+int i,j;
+if(prodn[0][0]==c)follow[m++]='$';
+for(i=0;i&lt;n;i++){
+for(j=2;j&lt;strlen(prodn[i]);j++){
+if(prodn[i][j]==c)
+if(prodn[i][j+1]!='\0')FIRST(prodn[i][j+1]);
+if(prodn[i][j+1]=='\0'&&c!=prodn[i][0])
+FOLLOW(prodn[i][0]);
+}
+}
+
+}
+
+void FIRST(char c){
+int j;
+if(!(isupper(c)))first[n++]=c;
+for(j=0;j&lt;count;j++){
+if(prodn[j][0]==c){
+if(prodn[j][2]=='$')first[n++]='$';
+else if(islower(prodn[j][2]))first[n++]=prodn[j][2];
+else FIRST(prodn[j][2]);
+}
+}
+
+}
+
 </pre>
-<button onclick="copyElementText('text13')">P</button><br/><br/>
+<button onclick="copyElementText('text13')">First & Follow</button><br/><br/>
 
 	
 	
