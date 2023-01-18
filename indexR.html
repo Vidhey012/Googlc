@@ -8057,6 +8057,94 @@ else:
 </pre>
 <button onclick="copyElementText('text6')">Visualisation</button><br/><br/>
 
+<pre class="right-side-header" title="Copy Text" id="text7"  hidden>
+
+import pandas as pd
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score,confusion_matrix
+df = pd.read_csv("Iris.csv")
+X = df.drop('Species',axis=1)
+y = df['Species']
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.3,random_state=101)
+model = GaussianNB()
+model.fit(X_train,y_train)
+preds = model.predict(X_test)
+print(confusion_matrix(preds,y_test))
+print(accuracy_score(preds,y_test))
+
+
+</pre>
+<button onclick="copyElementText('text7')">Python-NB</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text8"  hidden>
+
+import pandas as pd
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+df = pd.read_csv('iris.csv')
+X = df.drop('Species',axis=1)
+model = KMeans(n_clusters=3)
+model.fit(X)
+plt.scatter(df['SepalLengthCm'],df['SepalWidthCm'],c=model.labels_)
+
+</pre>
+<button onclick="copyElementText('text8')">Python-KMeans</button><br/><br/>
+	
+<pre class="right-side-header" title="Copy Text" id="text9"  hidden>
+
+# Loading Libraries
+library(arules)
+library(arulesViz)
+library(RColorBrewer)
+
+# import dataset
+data("Groceries")
+
+# using apriori() function
+rules &lt;- apriori(Groceries,
+                 parameter = list(supp = 0.01, conf = 0.2))
+
+# using inspect() function
+inspect(rules[1:5])
+
+# using itemFrequencyPlot() function
+arules::itemFrequencyPlot(Groceries, topN = 7,
+                          col = brewer.pal(8, 'Pastel2'),
+                          main = 'Relative Item Frequency Plot',
+                          type = "relative",
+                          ylab = "Item Frequency (Relative)")
+
+</pre>
+<button onclick="copyElementText('text9')">R-apriori</button><br/><br/>
+	
+	
+<pre class="right-side-header" title="Copy Text" id="text10"  hidden>
+library(ClusterR)
+library(cluster)
+
+iris_1 &lt;- iris[, -5]
+kmeans.re &lt;- kmeans(iris_1, centers = 3, nstart = 20)
+
+kmeans.re$cluster
+kmeans.re$centers
+
+y_kmeans &lt;- kmeans.re$cluster
+clusplot(iris_1[, c("Sepal.Length", "Sepal.Width")],
+         y_kmeans,
+         lines = 0,
+         shade = TRUE,
+         color = TRUE,
+         labels = 2,
+         plotchar = FALSE,
+         span = TRUE,
+         main = paste("Cluster iris"),
+         xlab = 'Sepal.Length',
+         ylab = 'Sepal.Width')
+
+
+</pre>
+<button onclick="copyElementText('text10')">R-KMeans</button><br/><br/>
 
 
 </div>
