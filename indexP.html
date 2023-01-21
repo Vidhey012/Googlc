@@ -1328,8 +1328,121 @@ getch();
 </pre>
 <button onclick="copyElementText('text15')">First Follow New</button><br/><br/>
 	
+<pre class="right-side-header" title="Copy Text" id="text16"  hidden>
 	
+#include &lt;stdio.h&gt;
+#include&lt;string.h&gt;
+char stack[20],ipt[20],opt[20];
+int optr=0;
+int top=-1,i;
+int checkPrecedence(char ch)
+{
+    if(ch=='+' || ch=='-')
+    return 1;
+    else if(ch=='*' || ch=='/' || ch=='%')
+    return 2;
+}
 
+void push(char ch)
+{
+    if(top&gt;=20)
+    printf("Overflow !");
+    else
+    {
+        stack[++top]=ch;
+    }
+}
+
+char pop()
+{
+    char ch=' ';
+    if(top==-1)
+    printf("Underflow !");
+    else
+    {
+        ch=stack[top--];
+    }
+    return ch;
+}
+
+void PAC()
+{
+    for(i=0;i&lt;strlen(ipt);i++)
+    {
+        if(top==-1)
+        push(ipt[i]);
+        else if((ipt[i]&gt;='a' && ipt[i]&lt;='z') || (ipt[i]&gt;='A' && ipt[i]&lt;='Z') || (ipt[i]&gt;='0' && ipt[i]&lt;='9'))
+        {
+            opt[optr]=ipt[i];
+            optr++;
+        }
+        else if(ipt[i]=='+' || ipt[i]=='-' || ipt[i]=='*' || ipt[i]=='/' || ipt[i]=='%')
+        {   if(top==-1 || stack[top]=='(')
+                push(ipt[i]);
+            else if(checkPrecedence(stack[top])&lt;checkPrecedence(ipt[i]))
+            {
+                push(ipt[i]);
+            }
+            else
+            {
+                opt[optr++]=pop();
+                while(!(checkPrecedence(stack[top])&lt;checkPrecedence(ipt[i])) && top!=-1)
+                {
+                  opt[optr++]=pop();
+                }
+                push(ipt[i]);
+            }
+        }
+        else if(ipt[i]=='(')
+        {
+            push(ipt[i]);
+        }
+        else if(ipt[i]==')')
+        {
+             while(ipt[i]!='(' && top!=-1)
+                {
+                  opt[optr++]=pop();
+                }
+        }
+    }
+    while(top!=-1)
+    {
+      opt[optr++]=pop();
+    }
+}
+
+int main() {
+    char a[20],b[20];
+    int aptr=0,bptr=0;
+    printf("Enter Expression : ");
+    scanf("%s",ipt);
+    PAC();
+    for(i=0;i&lt;strlen(opt);i++)
+    {
+        if((opt[i]&gt;='a' && opt[i]&lt;='z') || (opt[i]&gt;='A' && opt[i]&lt;='Z') || (opt[i]&gt;='0' && opt[i]&lt;='9'))
+        {
+            a[aptr++]=opt[i];
+        }
+        else if(opt[i]=='+' || opt[i]=='-' || opt[i]=='*' || opt[i]=='/' || opt[i]=='%')
+        {
+            if(bptr==0)
+            {
+            printf("T=%c%c%c\n",a[--aptr],opt[i],a[--aptr]);
+            b[bptr++]=opt[i];
+            }
+            else
+            {
+                printf("T=%c%cT\n",a[--aptr],opt[i]);
+                b[bptr++]=opt[i];
+            }
+        }
+    }
+    return 0;
+}
+	
+</pre>
+<button onclick="copyElementText('text16')">3-address code New</button><br/><br/>
+		
 </div>
 
 
