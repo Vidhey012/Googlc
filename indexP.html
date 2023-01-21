@@ -1189,6 +1189,146 @@ return 0;
 </pre>
 <button onclick="copyElementText('text14')">Code Generation</button><br/><br/>
 	
+	
+<pre class="right-side-header" title="Copy Text" id="text15"  hidden>
+
+#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+char a[10][10],f[5][10],nt[5];
+ char fl[5][5];
+int i=0,n;
+int chk(char c,int k)
+{
+ int j;
+ for(j=0;j&lt;i;j++)
+  if(a[j][0]==c && a[j][3]=='e')
+  {
+	     strcat(&fl[k][0],&f[j][2]);
+         return 1;
+  }
+ return 0;
+}
+void first()
+{
+  int j,k,l,m,t;
+  for(j=0;j&lt;i;j++)
+  {
+   k=0;
+   while(nt[k]!=a[j][0])
+   k++;
+   strncat(&f[k][0],&a[j][3],1);
+  }
+  for(k=n-1;k&gt;=0;k--)
+  puts(&f[k][0]);
+  printf("\n after substitution:\n");
+  for(j=n-1;j&gt;=0;j--)
+  {
+    m=strlen(&f[j][0]);
+    x:
+    k=2;
+    while(k&lt;m && !(65&lt;=f[j][k] && f[j][k]&lt;=90))
+    k++;
+    if(k&lt;m)
+    {
+       for(t=n-1;t&gt;=0;t--)
+       {
+	 if(f[j][k]==nt[t])
+	 break;
+       }
+       f[j][k]=f[t][2];
+       strcat(&f[j][0],&f[t][3]);
+       goto x;
+    }
+  }
+ 
+ for(k=0;k&lt;n;k++)
+   puts(&f[k][0]);
+}
+void follow()
+{
+
+ int j,k,l,m,flag=0;
+ for(j=0;j&lt;n;j++)
+ {
+  fl[j][0]=nt[j];
+ fl[j][1]='\0';
+  strcat(&fl[j][0],":");
+  if(j==0 &flag==0){
+  strcat(&fl[0][0],"$");
+      flag=1;
+       }
+ }
+ for(j=0;j&lt;n;j++)
+ {
+  for(k=0;k&lt;i;k++)
+     for(l=3;l&lt;strlen(&a[k][0]);l++)
+      if(nt[j]==a[k][l])
+       {
+	    if(a[k][l+1]=='\0' || chk(a[k][l+1],k))
+	    {
+	     m=0;
+	     while(a[k][0]!=nt[m])
+	     m++;
+	     strcat(&fl[j][0],&fl[m][2]);
+        }
+	 else
+	  {
+	  if(65&lt;=a[k][l+1] && a[k][l+1]&lt;=90)
+	   {
+	   m=0;
+	   while(a[k][l+1]!=nt[m])
+	   m++;
+	   strcat(&fl[j][0],&f[m][2]);
+	   }
+	   else
+	   strncat(&fl[j][0],&a[k][l+1],1);
+	  }
+	   
+    }
+   
+ }
+ 
+ for(k=0;k&lt;n;k++)
+   puts(&fl[k][0]);
+}
+void main()
+{
+int j, k;
+char s[50],*p;
+printf("enter grammar:\n");
+gets(s);
+p=strtok(s," ");
+while(p!=NULL)
+{
+ strcpy(&a[i][0],p);
+ i++;
+ p=strtok(NULL," ");
+}
+f[n][0]=a[0][0];
+f[n][1]=':';
+f[n][2]='\0';
+nt[n++]=a[0][0];
+for(k=0;k&lt;i;k++)
+  if(k&gt;0 && a[k-1][0]!=a[k][0])
+  {
+    f[n][0]=a[k][0];
+    f[n][1]=':';
+    f[n][2]='\0';
+    nt[n++]=a[k][0];
+  }
+  nt[n]='\0';
+  puts(nt);
+printf("\n FIRSTS:\n");
+ first();
+ printf("\n FOLLOW:\n");
+ follow();
+getch();
+}
+	
+</pre>
+<button onclick="copyElementText('text15')">First Follow New</button><br/><br/>
+	
+	
 
 </div>
 
