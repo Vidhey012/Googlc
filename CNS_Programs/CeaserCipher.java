@@ -1,5 +1,3 @@
-package Cryptography;
-
 import java.util.Scanner;
 public class CeaserCipher {
     static Scanner sc=new Scanner(System.in);
