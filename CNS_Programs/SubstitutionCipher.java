@@ -30,7 +30,7 @@ public class SubstitutionCipher {
         String str = sc.nextLine();
         String encrypted = encrypt(str);
         System.out.println("Encrypted Message :" + encrypted);
-        String decrypted = decrypt(str);
+        String decrypted = decrypt(encrypted);
         System.out.println("Decrypted Message :" + decrypted);
     }
 }
