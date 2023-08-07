@@ -1,5 +1,3 @@
-package Cryptography;
-
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import javax.crypto.Cipher;
