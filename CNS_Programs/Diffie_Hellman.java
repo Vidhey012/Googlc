@@ -1,5 +1,3 @@
-package Cryptography;
-
 class Diffie_Hellman{
     private static long power(long a, long b, long p) {
         if (b == 1)
