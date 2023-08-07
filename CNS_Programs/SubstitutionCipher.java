@@ -1,5 +1,3 @@
-package Cryptography;
-
 import java.util.Scanner;
 public class SubstitutionCipher {
 
